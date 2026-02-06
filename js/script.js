@@ -1,0 +1,1 @@
+image = getElementbyID("goose-image");
