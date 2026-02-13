@@ -13,7 +13,7 @@ window.addEventListener('load', function () {
     let closeHelpButton = document.getElementById("close-help");
 
     helpButton.addEventListener('click', function () {
-        helpModal.style.display = "block";
+        helpModal.style.display = "block"; 
     });
 
     closeHelpButton.addEventListener('click', function () {
