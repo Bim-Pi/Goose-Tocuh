@@ -6,20 +6,22 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Goose Touch</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/script.js"></script>
+    <script src ="js/script.js"></script>
 </head>
 <body>
     <div id="game-container">
         
         <!-- HEADER -->
         <header id="header">
-            <img id="logo" src="images/goose_circle.png" width="55" alt="Goose Logo">
-            <h1>Click Click Goose</h1>
-            <input type="button" id="help-button" value="Help">
+            <img id="logo" src="images/goose_circle.png" width="100" alt="Goose Logo">
+            <h1>Goose Honking Clicker</h1>
+            <button id="help-button">Help</button>
         </header>
+
         <!-- HELP MODAL -->
         <div id="help-modal">
             <div class="modal-content">
+                <button id="close-help">&times;</button>
                 <h2>How to Play</h2>
                 <p>Click the goose to make it honk and earn honks! Use your honks to buy upgrades.</p>
                 
@@ -29,7 +31,6 @@
                 <h3>Rewards & Badges</h3>
                 <ul id="help-rewards-list"></ul>
             </div>
-            <input type="button" id="close-help" value="&times;">
         </div>
 
         <!-- MAIN GAME CONTENT -->
@@ -89,5 +90,7 @@
         </div>
 
     </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
