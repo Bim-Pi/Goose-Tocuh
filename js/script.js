@@ -5,7 +5,7 @@ window.addEventListener('load', function () {
 
     image.addEventListener('click', function () {
         click += 1;
-
+        honks.textContent = click;
     });
 
     let helpButton = document.getElementById("help-button");
