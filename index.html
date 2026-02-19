@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Goose Touch</title>
+    <title>Goose lays eggs</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src ="js/script.js"></script>
 </head>
@@ -14,7 +14,7 @@
         <!-- HEADER -->
         <header id="header">
             <img id="logo" src="images/goose_circle.png" width="100" alt="Goose Logo">
-            <h1>Goose Honking Clicker</h1>
+            <h1>Goose Lays Eggs Clicker</h1>
             <button id="help-button">Help</button>
         </header>
 
@@ -23,7 +23,7 @@
             <div class="modal-content">
                 <button id="close-help">&times;</button>
                 <h2>How to Play</h2>
-                <p>Click the goose to make it honk and earn honks! Use your honks to buy upgrades.</p>
+                <p>Click the goose to lay its egg and earn eggs! Use your eggs to buy upgrades.</p>
             </div>
         </div>
 
@@ -36,7 +36,7 @@
                 <!-- CLICK AREA -->
                 <div id="click-area">
                     <div id="click-zone">
-                        <img id="goose-image" src="images/GooseHonking.png" alt="Goose">
+                        <img id="goose-image" src="images/GooseLayingEgg.png" alt="Goose">
                     </div>
                 </div>
 
@@ -44,15 +44,15 @@
                 <div id="scoreboard">
                     <h2>Scoreboard</h2>
                     <div class="score-item">
-                        <label>Total Honks:</label>
+                        <label>Total Eggs:</label>
                         <span id="resource-count">0</span>
                     </div>
                     <div class="score-item">
-                        <label>Honks Per Click:</label>
+                        <label>Eggs Laid Per Click:</label>
                         <span id="click-value">1</span>
                     </div>
                     <div class="score-item">
-                        <label>Active Upgrades:</label>
+                        <label>Active Eggs Laid:</label>
                         <span id="active-upgrades-count">0</span>
                     </div>
                 </div>
@@ -65,7 +65,13 @@
                 <!-- UPGRADES AREA -->
                 <div id="upgrades-section">
                     <h2>Upgrades</h2>
-                    <div id="upgrades-container"></div>
+                    <div id="upgrades-container">
+                        <div class="upgrade">
+                            <img src="images/labor-inducing drugs.png" width="50" alt="upgrade1">
+                            <h3>labor-inducing drugs(Eggs: 10)</h3>
+                            <span id="upgrade1-count">1</span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- REWARDS AREA -->

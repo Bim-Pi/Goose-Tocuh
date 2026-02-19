@@ -211,3 +211,27 @@ h1 {
     cursor: pointer;
     color: #777;
 }
+
+.upgrade {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border: 1px solid #a7a7a7;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    background-color: rgb(210, 227, 206);
+}
+
+h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+#upgrade1-count {
+    font-size: 30px;
+    font-family:"Times New Roman", Times, serif;
+    color: #000000;
+    margin-left: 12px;
+}
