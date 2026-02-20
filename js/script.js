@@ -65,11 +65,11 @@ window.addEventListener('load', function () {
     const gooseNestCostDisplay = this.document.getElementById("upgrade3-cost");
     const gooseNestLevelDisplay = this.document.getElementById("upgrade3-count");
     
-    let dating = 1500;
-    let datingLevel = 0;
-    const btn4 = document.getElementById('upgrade-dating');
-    const datingCostDisplay = this.document.getElementById("upgrade4-cost");
-    const datingLevelDisplay = this.document.getElementById("upgrade4-count");
+    let intimacy = 1500;
+    let intimacyLevel = 0;
+    const btn4 = document.getElementById('upgrade-intimacy');
+    const intimacyCostDisplay = this.document.getElementById("upgrade4-cost");
+    const intimacyLevelDisplay = this.document.getElementById("upgrade4-count");
 
     let feed = 5000;
     let gooseFeedLevel = 0;
@@ -95,7 +95,7 @@ window.addEventListener('load', function () {
         } else {
             btn3.classList.remove('disabled');
         }
-        if(click < dating) {
+        if(click < intimacy) {
             btn4.classList.add('disabled');
         } else {
             btn4.classList.remove('disabled');
@@ -171,21 +171,21 @@ window.addEventListener('load', function () {
     });
 
     btn4.addEventListener('mouseover', function () {
-        btn4.title = "Dating will increase your points by 1 with each click, and automatically produces 5 eggs per second.";
+        btn4.title = "Improved Intimacy will increase your points by 1 with each click, and automatically produces 5 eggs per second.";
     });
 
     btn4.addEventListener('click', function () {
-        if(click >= dating) {
-            click -= dating;
-            dating += 2500;
-            datingLevel++;
+        if(click >= intimacy) {
+            click -= intimacy;
+            intimacy += 2500;
+            intimacyLevel++;
             eggsLaid += 5;
             clickPower += 1;
             activeEggsLaid.textContent = eggsLaid;
-            datingCostDisplay.textContent = dating;
+            intimacyCostDisplay.textContent = intimacy;
             eggs.textContent = click;
             clickValue.textContent = clickPower;
-            datingLevelDisplay.textContent = datingLevel;
+            intimacyLevelDisplay.textContent = intimacyLevel;
         }
     });
 
