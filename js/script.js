@@ -1,3 +1,5 @@
+// --------------------Clicking Settings---------------------------
+// Function for Goose Image -----------------------
 window.addEventListener('load', function () {
     const image = document.getElementById("goose-image");
     let click = 0;
@@ -5,7 +7,17 @@ window.addEventListener('load', function () {
     let eggsLaid = 0;
     const eggs = this.document.getElementById("resource-count")
 
+    const preloadSound = new Audio('SoundEffect/GooseHONK!_SoundEffect.mp3');
+    preloadSound.preload = 'auto';
+    preloadSound.load();
+
+    // Functions for clicking--------------------------
     image.addEventListener('click', function () {
+        const honk = new Audio('SoundEffect/GooseHONK!_SoundEffect.mp3');
+        honk.play().catch(e => {
+            console.warn("Audio play blocked:", e);
+        });
+
         click += clickPower;
         eggs.textContent = click;
     });
@@ -17,7 +29,9 @@ window.addEventListener('load', function () {
     }
     setInterval(eggsLaidPerSec, 1000);
 
+    const activeEggsLaid = this.document.getElementById("active-upgrades-count");
 
+    // Help Button--------------------------------
     let helpButton = document.getElementById("help-button");
     let helpModal = document.getElementById("help-modal");
     let closeHelpButton = document.getElementById("close-help");
@@ -30,8 +44,7 @@ window.addEventListener('load', function () {
         helpModal.style.display = "none";
     });
 
-
-
+    // ----------------------------------- Upgrades ----------------------------------------
     let drugCost = 10;
     let drugCostLevel = 0;
     const btn1 = document.getElementById('upgrade-drugs');
@@ -40,13 +53,32 @@ window.addEventListener('load', function () {
     const drugCostLevelDisplay = this.document.getElementById("upgrade1-count");
     const drugArea = document.getElementById('drug-sign');
 
-    const activeEggsLaid = this.document.getElementById("active-upgrades-count");
     let gooseCost = 100;
     let gooseCostLevel = 0;
     const btn2 = document.getElementById('upgrade-geese');
     const gooseCostDisplay = this.document.getElementById("upgrade2-cost");
     const gooseCostLevelDisplay = this.document.getElementById("upgrade2-count");
+
+    let gooseNest = 500;
+    let gooseNestLevel = 0;
+    const btn3 = document.getElementById('upgrade-nest');
+    const gooseNestCostDisplay = this.document.getElementById("upgrade3-cost");
+    const gooseNestLevelDisplay = this.document.getElementById("upgrade3-count");
     
+    let dating = 1500;
+    let datingLevel = 0;
+    const btn4 = document.getElementById('upgrade-dating');
+    const datingCostDisplay = this.document.getElementById("upgrade4-cost");
+    const datingLevelDisplay = this.document.getElementById("upgrade4-count");
+
+    let feed = 5000;
+    let gooseFeedLevel = 0;
+    const btn5 = document.getElementById('upgrade-Feed');
+    const feedCostDisplay = this.document.getElementById("upgrade5-cost");
+    const feedLevelDisplay = this.document.getElementById("upgrade5-count");
+
+
+
     function updateUpgradeStatus() {
         if(click < drugCost) {
             btn1.classList.add('disabled');
@@ -57,6 +89,21 @@ window.addEventListener('load', function () {
             btn2.classList.add('disabled');
         } else {
             btn2.classList.remove('disabled');
+        }
+        if(click < gooseNest) {
+            btn3.classList.add('disabled');
+        } else {
+            btn3.classList.remove('disabled');
+        }
+        if(click < dating) {
+            btn4.classList.add('disabled');
+        } else {
+            btn4.classList.remove('disabled');
+        }
+        if(click < feed) {
+            btn5.classList.add('disabled');
+        } else {
+            btn5.classList.remove('disabled');
         }
     }
 
@@ -101,6 +148,64 @@ window.addEventListener('load', function () {
             eggs.textContent = click;
             clickValue.textContent = clickPower;
             gooseCostLevelDisplay.textContent = gooseCostLevel;
+        }
+    });
+
+    btn3.addEventListener('mouseover', function () {
+        btn3.title = "A goose nest will increase your points by 0.5 with each click, and automatically produces 2 eggs per second.";
+    });
+
+    btn3.addEventListener('click', function () {
+        if(click >= gooseNest) {
+            click -= gooseNest;
+            gooseNest += 1000;
+            gooseNestLevel++;
+            eggsLaid += 2;
+            clickPower += 0.5;
+            activeEggsLaid.textContent = eggsLaid;
+            gooseNestCostDisplay.textContent = gooseNest;
+            eggs.textContent = click;
+            clickValue.textContent = clickPower;
+            gooseNestLevelDisplay.textContent = gooseNestLevel;
+        }
+    });
+
+    btn4.addEventListener('mouseover', function () {
+        btn4.title = "Dating will increase your points by 1 with each click, and automatically produces 5 eggs per second.";
+    });
+
+    btn4.addEventListener('click', function () {
+        if(click >= dating) {
+            click -= dating;
+            dating += 2500;
+            datingLevel++;
+            eggsLaid += 5;
+            clickPower += 1;
+            activeEggsLaid.textContent = eggsLaid;
+            datingCostDisplay.textContent = dating;
+            eggs.textContent = click;
+            clickValue.textContent = clickPower;
+            datingLevelDisplay.textContent = datingLevel;
+        }
+    });
+
+    btn5.addEventListener('mouseover', function () {
+        btn5.title = "Feeding your geese will increase your points by 2 with each click, and automatically produces 10 eggs per second.";
+    });
+
+    btn5.addEventListener('click', function () {
+        if(click >= feed) {
+            click -= feed;
+            feed = feed + 5000;
+            gooseFeedLevel++;
+            eggsLaid += 50;
+            clickPower += 3;
+            activeEggsLaid.textContent = eggsLaid;
+            feedCostDisplay.textContent = feed;
+            eggs.textContent = click;
+            clickValue.textContent = clickPower;
+            feedLevelDisplay.textContent = gooseFeedLevel;
+
         }
     });
 });
