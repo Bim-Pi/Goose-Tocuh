@@ -40,6 +40,11 @@
                     </div>
                 </div>
 
+                <!-- DRUG AREA -->
+                <div id="drug-area">
+                    <label id="drug-sign"></label>
+                </div>
+
                 <!-- SCOREBOARD .-->
                 <div id="scoreboard">
                     <h2>Scoreboard</h2>
@@ -52,7 +57,7 @@
                         <span id="click-value">1</span>
                     </div>
                     <div class="score-item">
-                        <label>Active Eggs Laid:</label>
+                        <label>Active Eggs Laid(Per Second):</label>
                         <span id="active-upgrades-count">0</span>
                     </div>
                 </div>
@@ -66,10 +71,15 @@
                 <div id="upgrades-section">
                     <h2>Upgrades</h2>
                     <div id="upgrades-container">
-                        <div class="upgrade">
+                        <div class="upgrade" id="upgrade-drugs">
                             <img src="images/labor-inducing drugs.png" width="50" alt="upgrade1">
-                            <h3>labor-inducing drugs(Eggs: 10)</h3>
-                            <span id="upgrade1-count">1</span>
+                            <h3>labor-inducing drugs(Eggs: <span id="upgrade1-cost">10</span>)</h3>
+                            <span class="count" id="upgrade1-count">0</span>
+                        </div>
+                        <div class="upgrade" id="upgrade-geese">
+                            <img src="images/goose.png" width="50" alt="upgrade2">
+                            <h3>labor-inducing drugs(Eggs: <span id="upgrade2-cost">100</span>)</h3>
+                            <span class="count" id="upgrade2-count">0</span>
                         </div>
                     </div>
                 </div>
@@ -90,7 +100,5 @@
         </div>
 
     </div>
-
-    <script src="js/script.js"></script>
 </body>
 </html>
