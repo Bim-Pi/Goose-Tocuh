@@ -116,7 +116,7 @@ window.addEventListener('load', function () {
             click -= drugCost;
             drugCost += 20;
             drugCostLevel++;
-            eggsLaid += 0.25;
+            eggsLaid += 2.5;
             clickPower += 0.125;
             activeEggsLaid.textContent = eggsLaid;
             drugCostDisplay.textContent = drugCost;
@@ -141,7 +141,7 @@ window.addEventListener('load', function () {
             click -= gooseCost;
             gooseCost += 100;
             gooseCostLevel++;
-            eggsLaid += 1;
+            eggsLaid += 10;
             clickPower += 0.25;
             activeEggsLaid.textContent = eggsLaid;
             gooseCostDisplay.textContent = gooseCost;
@@ -160,7 +160,7 @@ window.addEventListener('load', function () {
             click -= gooseNest;
             gooseNest += 1000;
             gooseNestLevel++;
-            eggsLaid += 2;
+            eggsLaid += 20;
             clickPower += 0.5;
             activeEggsLaid.textContent = eggsLaid;
             gooseNestCostDisplay.textContent = gooseNest;
@@ -179,7 +179,7 @@ window.addEventListener('load', function () {
             click -= intimacy;
             intimacy += 2500;
             intimacyLevel++;
-            eggsLaid += 5;
+            eggsLaid += 50;
             clickPower += 1;
             activeEggsLaid.textContent = eggsLaid;
             intimacyCostDisplay.textContent = intimacy;
@@ -198,7 +198,7 @@ window.addEventListener('load', function () {
             click -= feed;
             feed = feed + 5000;
             gooseFeedLevel++;
-            eggsLaid += 50;
+            eggsLaid += 500;
             clickPower += 3;
             activeEggsLaid.textContent = eggsLaid;
             feedCostDisplay.textContent = feed;
