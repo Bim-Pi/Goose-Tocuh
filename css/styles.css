@@ -157,13 +157,22 @@ h1 {
     text-align: center;
 }
 
-/* Bottom: Rewards & Badges — full width */
+/* Middle: Rewards & Badges — full width */
+#mid-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 2;
+}
 #rewards-section {
     background: white;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     margin-top: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 #rewards-section h2 {
