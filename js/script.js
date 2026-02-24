@@ -129,6 +129,10 @@ window.addEventListener('load', function () {
                 drugArea.innerHTML += "🥚";
             }
         }
+        if (drugCostLevel==100){
+            btn1.classList.add('disabled');
+            
+        }
     });
     setInterval(updateUpgradeStatus, 16);
 
@@ -149,6 +153,7 @@ window.addEventListener('load', function () {
             clickValue.textContent = clickPower;
             gooseCostLevelDisplay.textContent = gooseCostLevel;
         }
+        
     });
 
     btn3.addEventListener('mouseover', function () {
