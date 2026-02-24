@@ -210,12 +210,19 @@ window.addEventListener('load', function () {
     });
 
 
-
+    // ----------------------------------- Rewards ----------------------------------------
+    
+    //Add new goose rewards
     const c = document.getElementById("badge1");
-    const goose_Nest = new Image();
-    img.src = "images/Goose_Nest.png";
+    const ctx = c.getContext("2d");
+
 
     const goose_Nest = new Image();
-    img.src = "images/Goose_Nest.jpg";
+    goose_Nest.src = "images/Goose_Nest.png";
+    const goose_Carcass = new Image();
+    goose_Carcass.src = "images/goose carcass.png";
 
+    goose_Carcass.onload = function () {
+        ctx.drawImage(goose_Carcass, 0, 0, 500, 250);
+    };
 });
