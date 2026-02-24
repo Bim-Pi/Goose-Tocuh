@@ -132,7 +132,7 @@ h1 {
     color: #1a567d;
 }
 
-/* Column 2: Upgrades (stretches to match scoreboard height) */
+/* Column 3: Upgrades (stretches to match scoreboard height) */
 #right-panel {
     display: flex;
     flex-direction: column;
@@ -157,19 +157,20 @@ h1 {
     text-align: center;
 }
 
-/* Middle: Rewards & Badges — full width */
+/* Column 2: Rewards & Badges — full width */
 #mid-panel {
     display: flex;
     flex-direction: column;
     gap: 20px;
     flex: 2;
+    margin-top: 0;
 }
 #rewards-section {
     background: white;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    margin-top: 20px;
+    margin-top: 0;
     flex: 1;
     display: flex;
     flex-direction: column;
