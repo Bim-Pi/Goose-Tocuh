@@ -208,4 +208,14 @@ window.addEventListener('load', function () {
 
         }
     });
+
+
+
+    const c = document.getElementById("badge1");
+    const goose_Nest = new Image();
+    img.src = "images/Goose_Nest.png";
+
+    const goose_Nest = new Image();
+    img.src = "images/Goose_Nest.jpg";
+
 });
