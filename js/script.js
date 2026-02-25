@@ -59,19 +59,19 @@ window.addEventListener('load', function () {
     const gooseCostDisplay = this.document.getElementById("upgrade2-cost");
     const gooseCostLevelDisplay = this.document.getElementById("upgrade2-count");
 
-    let gooseNest = 500;
-    let gooseNestLevel = 0;
-    const btn3 = document.getElementById('upgrade-nest');
-    const gooseNestCostDisplay = this.document.getElementById("upgrade3-cost");
-    const gooseNestLevelDisplay = this.document.getElementById("upgrade3-count");
+    let carcassCost = 1000;
+    let carcassCostLevel = 0;
+    const btn3 = document.getElementById('upgrade-carcass');
+    const carcassCostDisplay = this.document.getElementById("upgrade3-cost");
+    const carcassCostLevelDisplay = this.document.getElementById("upgrade3-count");
     
-    let intimacy = 1500;
+    let intimacy = 10000;
     let intimacyLevel = 0;
     const btn4 = document.getElementById('upgrade-intimacy');
     const intimacyCostDisplay = this.document.getElementById("upgrade4-cost");
     const intimacyLevelDisplay = this.document.getElementById("upgrade4-count");
 
-    let feed = 5000;
+    let feed = 100000;
     let gooseFeedLevel = 0;
     const btn5 = document.getElementById('upgrade-Feed');
     const feedCostDisplay = this.document.getElementById("upgrade5-cost");
@@ -80,17 +80,23 @@ window.addEventListener('load', function () {
 
 
     function updateUpgradeStatus() {
-        if(click < drugCost) {
+        if (drugCostLevel >= 50){
+            btn1.classList.add('disabled');
+        } else if(click < drugCost) {
             btn1.classList.add('disabled');
         } else {
             btn1.classList.remove('disabled');
         }
-        if(click < gooseCost) {
+        if (gooseCostLevel >= 17){
+            btn2.classList.add('disabled');
+        } else if(click < gooseCost) {
             btn2.classList.add('disabled');
         } else {
             btn2.classList.remove('disabled');
         }
-        if(click < gooseNest) {
+        if (carcassCostLevel >= 17){
+            btn3.classList.add('disabled');
+        } else if(click < carcassCost) {
             btn3.classList.add('disabled');
         } else {
             btn3.classList.remove('disabled');
@@ -108,16 +114,18 @@ window.addEventListener('load', function () {
     }
 
     btn1.addEventListener('mouseover', function () {
-        btn1.title = "The labor-inducing drug will increase your points by 0.125 with each click, and automatically produces 0.25 eggs per second.";
+        btn1.title = "The labor-inducing drug will increase your points by 0.5 with each click, and automatically produces 1 eggs per second.";
     });
 
     btn1.addEventListener('click', function () {
-        if(click >= drugCost) {
+        if (drugCostLevel >= 50){
+            drugCostDisplay.textContent = "Ultimate Level";
+        } else if(click >= drugCost) {
             click -= drugCost;
             drugCost += 20;
             drugCostLevel++;
-            eggsLaid += 2.5;
-            clickPower += 0.125;
+            eggsLaid += 10;
+            clickPower += 0.5;
             activeEggsLaid.textContent = eggsLaid;
             drugCostDisplay.textContent = drugCost;
             eggs.textContent = click;
@@ -129,63 +137,66 @@ window.addEventListener('load', function () {
                 drugArea.innerHTML += "🥚";
             }
         }
-        if (drugCostLevel==100){
-            btn1.classList.add('disabled');
-            
-        }
     });
     setInterval(updateUpgradeStatus, 16);
 
     btn2.addEventListener('mouseover', function () {
-        btn2.title = "An extra goose will increase your points by 0.25 with each click, and automatically produces 1 eggs per second.";
+        btn2.title = "An extra goose will increase your points by 1 with each click, and automatically produces 5 eggs per second.";
     });
 
     btn2.addEventListener('click', function () {
-        if(click >= gooseCost) {
+        if (gooseCostLevel >= 17){
+            gooseCostDisplay.textContent = "Ultimate Level";
+        } else if(click >= gooseCost) {
             click -= gooseCost;
             gooseCost += 100;
             gooseCostLevel++;
-            eggsLaid += 10;
-            clickPower += 0.25;
+            eggsLaid += 50;
+            clickPower += 1;
             activeEggsLaid.textContent = eggsLaid;
             gooseCostDisplay.textContent = gooseCost;
             eggs.textContent = click;
             clickValue.textContent = clickPower;
             gooseCostLevelDisplay.textContent = gooseCostLevel;
+            displayGoose();
         }
-        
     });
 
     btn3.addEventListener('mouseover', function () {
-        btn3.title = "A goose nest will increase your points by 0.5 with each click, and automatically produces 2 eggs per second.";
+        btn3.title = "A extra goose carcass will increase your points by 5 with each click, and automatically produces 10 eggs per second.";
     });
 
     btn3.addEventListener('click', function () {
-        if(click >= gooseNest) {
-            click -= gooseNest;
-            gooseNest += 1000;
-            gooseNestLevel++;
-            eggsLaid += 20;
-            clickPower += 0.5;
+        if (carcassCostLevel >= 17){
+            carcassCostDisplay.textContent = "Ultimate Level";
+        } else if(click >= carcassCost) {
+            click -= carcassCost;
+            carcassCost += 2500;
+            carcassCostLevel++;
+            eggsLaid += 500;
+            clickPower += 5;
             activeEggsLaid.textContent = eggsLaid;
-            gooseNestCostDisplay.textContent = gooseNest;
+            carcassCostDisplay.textContent = carcassCost;
             eggs.textContent = click;
             clickValue.textContent = clickPower;
-            gooseNestLevelDisplay.textContent = gooseNestLevel;
+            carcassCostLevelDisplay.textContent = carcassCostLevel;
+            displayCarcass();
         }
     });
 
     btn4.addEventListener('mouseover', function () {
-        btn4.title = "Improved Intimacy will increase your points by 1 with each click, and automatically produces 5 eggs per second.";
+        btn4.title = "Improved Intimacy will increase your points by 10 with each click, and automatically produces 100 eggs per second.";
     });
 
     btn4.addEventListener('click', function () {
-        if(click >= intimacy) {
+        if (intimacyLevel >= 100){
+            btn4.classList.remove('disabled');
+        } else if(click >= intimacy) {
             click -= intimacy;
-            intimacy += 2500;
+            intimacy += 20000;
             intimacyLevel++;
-            eggsLaid += 50;
-            clickPower += 1;
+            eggsLaid += 2500;
+            clickPower += 10;
             activeEggsLaid.textContent = eggsLaid;
             intimacyCostDisplay.textContent = intimacy;
             eggs.textContent = click;
@@ -195,16 +206,18 @@ window.addEventListener('load', function () {
     });
 
     btn5.addEventListener('mouseover', function () {
-        btn5.title = "Feeding your geese will increase your points by 2 with each click, and automatically produces 10 eggs per second.";
+        btn5.title = "Feeding your geese will increase your points by 30 with each click, and automatically produces 1000 eggs per second.";
     });
 
     btn5.addEventListener('click', function () {
-        if(click >= feed) {
+        if (gooseFeedLevel == 100){
+            btn5.classList.remove('disabled');
+        } else if(click >= feed) {
             click -= feed;
-            feed = feed + 5000;
+            feed += 250000;
             gooseFeedLevel++;
-            eggsLaid += 500;
-            clickPower += 3;
+            eggsLaid += 12500;
+            clickPower += 30;
             activeEggsLaid.textContent = eggsLaid;
             feedCostDisplay.textContent = feed;
             eggs.textContent = click;
@@ -212,15 +225,15 @@ window.addEventListener('load', function () {
             feedLevelDisplay.textContent = gooseFeedLevel;
 
         }
+        
     });
 
 
-    // ----------------------------------- Rewards ----------------------------------------
+    // ----------------------------------- Coup ----------------------------------------
     
-    //Add new goose rewards
-    const c = document.getElementById("badge1");
-    const ctx = c.getContext("2d");
-
+    //Add new goose coup
+    const c1 = document.getElementById("badge1");
+    const ctx1 = c1.getContext("2d");
 
     const goose_Nest = new Image();
     goose_Nest.src = "images/Goose_Nest.png";
@@ -228,6 +241,56 @@ window.addEventListener('load', function () {
     goose_Carcass.src = "images/goose carcass.png";
 
     goose_Carcass.onload = function () {
-        ctx.drawImage(goose_Carcass, 0, 0, 500, 250);
+        ctx1.drawImage(goose_Carcass, 0, 0, 560, 150);
     };
+
+    let goose_x = 30;
+    let goose_y = 48;
+    function displayGoose() {
+        if(gooseCostLevel == 1) {
+            ctx1.drawImage(goose_Nest, goose_x, goose_y, 57, 63);
+            c1.style.display = "flex";
+            goose_x += 55;
+        } else if(gooseCostLevel % 2 == 0) {
+            ctx1.drawImage(goose_Nest, goose_x, goose_y, 57, 63);
+            goose_x -= 27;
+            goose_y = 57;
+        } else {
+            ctx1.drawImage(goose_Nest, goose_x, goose_y, 57, 63);
+            goose_x += 82;
+            goose_y = 48;
+        }
+    }
+
+
+    const c2 = document.getElementById("badge2");
+    const ctx2 = c2.getContext("2d");
+
+    const carcass = new Image();
+    carcass.src = "images/Goose_Carcass.png";
+    const goose_Shed = new Image();
+    goose_Shed.src = "images/Inside goose shed.png";
+
+    goose_Shed.onload = function () {
+        ctx2.drawImage(goose_Shed, 0, 0, 560, 150);
+    };
+
+    let carcass_x = 30;
+    let carcass_y = 80;
+    function displayCarcass() {
+        if(carcassCostLevel == 1) {
+            ctx2.drawImage(carcass, carcass_x, carcass_y, 57, 52);
+            c2.style.display = "flex";
+            carcass_x += 58;
+        } else if(carcassCostLevel % 2 == 0) {
+            ctx2.drawImage(carcass, carcass_x, carcass_y, 57, 52);
+            carcass_x -= 29;
+            carcass_y = 92;
+        } else {
+            ctx2.drawImage(carcass, carcass_x, carcass_y, 57, 52);
+            carcass_x += 87;
+            carcass_y = 80;
+        }
+    }
+    
 });

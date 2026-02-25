@@ -15,7 +15,7 @@ body {
 
 /* === Main Container === */
 #game-container {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -141,6 +141,7 @@ h1 {
     flex: 2;
     margin-top: 0;
 }
+
 #coup-section {
     background: white;
     border-radius: 10px;
@@ -321,4 +322,16 @@ h3 {
 .upgrade.disabled:active {
     transform: scale(0.97) translateY(0);
     box-shadow: #7b7b7b 0px 2px 4px -1px;
+}
+
+.coup {
+    margin-bottom: 20px;
+}
+
+#badge1 {
+    display: none;
+}
+
+#badge2 {
+    display: none;
 }
