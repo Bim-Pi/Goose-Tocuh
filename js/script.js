@@ -82,6 +82,7 @@ window.addEventListener('load', function () {
     function updateUpgradeStatus() {
         if (drugCostLevel >= 50){
             btn1.classList.add('disabled');
+            drugCostDisplay.textContent = "Ultimate Level";
         } else if(click < drugCost) {
             btn1.classList.add('disabled');
         } else {
@@ -89,6 +90,7 @@ window.addEventListener('load', function () {
         }
         if (gooseCostLevel >= 17){
             btn2.classList.add('disabled');
+            gooseCostDisplay.textContent = "Ultimate Level";
         } else if(click < gooseCost) {
             btn2.classList.add('disabled');
         } else {
@@ -96,6 +98,7 @@ window.addEventListener('load', function () {
         }
         if (carcassCostLevel >= 17){
             btn3.classList.add('disabled');
+            carcassCostDisplay.textContent = "Ultimate Level";
         } else if(click < carcassCost) {
             btn3.classList.add('disabled');
         } else {
