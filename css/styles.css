@@ -60,6 +60,7 @@ h1 {
     display: flex;
     gap: 20px;
     flex: 1;
+    margin-bottom: 20px;
 }
 
 /* Column 1: Goose + Scoreboard (vertical stack) */
@@ -132,6 +133,33 @@ h1 {
     color: #1a567d;
 }
 
+/* Column 2: Rewards & Badges — full width */
+#mid-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 2;
+    margin-top: 0;
+}
+#coup-section {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-top: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#coup-section h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: #1a567d;
+    text-align: center;
+}
+
+
 /* Column 3: Upgrades (stretches to match scoreboard height) */
 #right-panel {
     display: flex;
@@ -157,20 +185,21 @@ h1 {
     text-align: center;
 }
 
-/* Column 2: Rewards & Badges — full width */
-#mid-panel {
+/* ==Row 2== */
+#rewards-row {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 20px;
+    width: 100%;
+    margin-top: 20px;
     flex: 2;
-    margin-top: 0;
 }
+
 #rewards-section {
     background: white;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    margin-top: 0;
     flex: 1;
     display: flex;
     flex-direction: column;
