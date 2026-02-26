@@ -37,7 +37,7 @@ window.addEventListener('load', function () {
     let closeHelpButton = document.getElementById("close-help");
 
     helpButton.addEventListener('click', function () {
-        helpModal.style.display = "block"; 
+        helpModal.style.display = "block";
     });
 
     closeHelpButton.addEventListener('click', function () {
@@ -64,7 +64,7 @@ window.addEventListener('load', function () {
     const btn3 = document.getElementById('upgrade-carcass');
     const carcassCostDisplay = this.document.getElementById("upgrade3-cost");
     const carcassCostLevelDisplay = this.document.getElementById("upgrade3-count");
-    
+
     let shedCost = 10000;
     let shedCostLevel = 0;
     const btn4 = document.getElementById('upgrade-shed');
@@ -80,42 +80,42 @@ window.addEventListener('load', function () {
 
 
     function updateUpgradeStatus() {
-        if (drugCostLevel >= 50){
+        if (drugCostLevel >= 50) {
             btn1.classList.add('disabled');
             drugCostDisplay.textContent = "Ultimate Level";
-        } else if(click < drugCost) {
+        } else if (click < drugCost) {
             btn1.classList.add('disabled');
         } else {
             btn1.classList.remove('disabled');
         }
-        if (gooseCostLevel >= 17){
+        if (gooseCostLevel >= 17) {
             btn2.classList.add('disabled');
             gooseCostDisplay.textContent = "Ultimate Level";
-        } else if(click < gooseCost) {
+        } else if (click < gooseCost) {
             btn2.classList.add('disabled');
         } else {
             btn2.classList.remove('disabled');
         }
-        if (carcassCostLevel >= 17){
+        if (carcassCostLevel >= 17) {
             btn3.classList.add('disabled');
             carcassCostDisplay.textContent = "Ultimate Level";
-        } else if(click < carcassCost) {
+        } else if (click < carcassCost) {
             btn3.classList.add('disabled');
         } else {
             btn3.classList.remove('disabled');
         }
-        if (shedCostLevel >= 17){
+        if (shedCostLevel >= 17) {
             btn4.classList.add('disabled');
             shedCostDisplay.textContent = "Ultimate Level";
-        } else if(click < shedCost) {
+        } else if (click < shedCost) {
             btn4.classList.add('disabled');
         } else {
             btn4.classList.remove('disabled');
         }
-        if (farmCostLevel >= 17){
+        if (farmCostLevel >= 17) {
             btn5.classList.add('disabled');
             farmCostDisplay.textContent = "Ultimate Level";
-        } else if(click < farmCost) {
+        } else if (click < farmCost) {
             btn5.classList.add('disabled');
         } else {
             btn5.classList.remove('disabled');
@@ -127,9 +127,9 @@ window.addEventListener('load', function () {
     });
 
     btn1.addEventListener('click', function () {
-        if (drugCostLevel >= 50){
+        if (drugCostLevel >= 50) {
             drugCostDisplay.textContent = "Ultimate Level";
-        } else if(click >= drugCost) {
+        } else if (click >= drugCost) {
             click -= drugCost;
             drugCost += 20;
             drugCostLevel++;
@@ -140,7 +140,7 @@ window.addEventListener('load', function () {
             eggs.textContent = click;
             clickValue.textContent = clickPower;
             drugCostLevelDisplay.textContent = drugCostLevel;
-            if(drugArea.innerText == "") {
+            if (drugArea.innerText == "") {
                 drugArea.innerHTML = "🥚";
             } else {
                 drugArea.innerHTML += "🥚";
@@ -153,16 +153,19 @@ window.addEventListener('load', function () {
             }
         }
     });
-    setInterval(updateUpgradeStatus, 16);
+    setInterval(function () {
+        updateUpgradeStatus();
+        checkRewards();
+    }, 16);
 
     btn2.addEventListener('mouseover', function () {
         btn2.title = "An extra goose will increase your points by 1 with each click, and automatically produces 5 eggs per second.";
     });
 
     btn2.addEventListener('click', function () {
-        if (gooseCostLevel >= 17){
+        if (gooseCostLevel >= 17) {
             gooseCostDisplay.textContent = "Ultimate Level";
-        } else if(click >= gooseCost) {
+        } else if (click >= gooseCost) {
             click -= gooseCost;
             gooseCost += 100;
             gooseCostLevel++;
@@ -182,9 +185,9 @@ window.addEventListener('load', function () {
     });
 
     btn3.addEventListener('click', function () {
-        if (carcassCostLevel >= 17){
+        if (carcassCostLevel >= 17) {
             carcassCostDisplay.textContent = "Ultimate Level";
-        } else if(click >= carcassCost) {
+        } else if (click >= carcassCost) {
             click -= carcassCost;
             carcassCost += 2500;
             carcassCostLevel++;
@@ -204,9 +207,9 @@ window.addEventListener('load', function () {
     });
 
     btn4.addEventListener('click', function () {
-        if (shedCostLevel >= 17){
+        if (shedCostLevel >= 17) {
             shedCostDisplay.textContent = "Ultimate Level";
-        } else if(click >= shedCost) {
+        } else if (click >= shedCost) {
             click -= shedCost;
             shedCost += 20000;
             shedCostLevel++;
@@ -226,9 +229,9 @@ window.addEventListener('load', function () {
     });
 
     btn5.addEventListener('click', function () {
-        if (farmCostLevel >= 17){
+        if (farmCostLevel >= 17) {
             farmCostDisplay.textContent = "Ultimate Level";
-        } else if(click >= farmCost) {
+        } else if (click >= farmCost) {
             click -= farmCost;
             farmCost += 250000;
             farmCostLevel++;
@@ -241,12 +244,12 @@ window.addEventListener('load', function () {
             farmCostLevelDisplay.textContent = farmCostLevel;
             displayFarm();
         }
-        
+
     });
 
 
     // ----------------------------------- Coup ----------------------------------------
-    
+
     //Add new goose coup
     const c1 = document.getElementById("badge1");
     const ctx1 = c1.getContext("2d");
@@ -263,11 +266,11 @@ window.addEventListener('load', function () {
     let goose_x = 30;
     let goose_y = 48;
     function displayGoose() {
-        if(gooseCostLevel == 1) {
+        if (gooseCostLevel == 1) {
             ctx1.drawImage(goose_Nest, goose_x, goose_y, 57, 63);
             c1.style.display = "flex";
             goose_x += 55;
-        } else if(gooseCostLevel % 2 == 0) {
+        } else if (gooseCostLevel % 2 == 0) {
             ctx1.drawImage(goose_Nest, goose_x, goose_y, 57, 63);
             goose_x -= 27;
             goose_y = 57;
@@ -294,11 +297,11 @@ window.addEventListener('load', function () {
     let carcass_x = 30;
     let carcass_y = 80;
     function displayCarcass() {
-        if(carcassCostLevel == 1) {
+        if (carcassCostLevel == 1) {
             ctx2.drawImage(carcass, carcass_x, carcass_y, 57, 52);
             c2.style.display = "flex";
             carcass_x += 58;
-        } else if(carcassCostLevel % 2 == 0) {
+        } else if (carcassCostLevel % 2 == 0) {
             ctx2.drawImage(carcass, carcass_x, carcass_y, 57, 52);
             carcass_x -= 29;
             carcass_y = 92;
@@ -308,7 +311,7 @@ window.addEventListener('load', function () {
             carcass_y = 80;
         }
     }
-    
+
 
     const c3 = document.getElementById("badge3");
     const ctx3 = c3.getContext("2d");
@@ -325,11 +328,11 @@ window.addEventListener('load', function () {
     let shed_x = 20;
     let shed_y = 70;
     function displayShed() {
-        if(shedCostLevel == 1) {
+        if (shedCostLevel == 1) {
             ctx3.drawImage(shed, shed_x, shed_y, 57, 42);
             c3.style.display = "flex";
             shed_x += 58;
-        } else if(shedCostLevel % 2 == 0) {
+        } else if (shedCostLevel % 2 == 0) {
             ctx3.drawImage(shed, shed_x, shed_y, 57, 42);
             shed_x -= 29;
             shed_y = 85;
@@ -352,15 +355,15 @@ window.addEventListener('load', function () {
     earth.onload = function () {
         ctx4.drawImage(earth, 0, 0, 560, 150);
     };
-0
+    0
     let farm_x = 20;
     let farm_y = 70;
     function displayFarm() {
-        if(farmCostLevel == 1) {
+        if (farmCostLevel == 1) {
             ctx4.drawImage(goose_Farm, farm_x, farm_y, 53, 43);
             c4.style.display = "flex";
             farm_x += 58;
-        } else if(farmCostLevel % 2 == 0) {
+        } else if (farmCostLevel % 2 == 0) {
             ctx4.drawImage(goose_Farm, farm_x, farm_y, 53, 43);
             farm_x -= 29;
             farm_y = 85;
@@ -369,5 +372,93 @@ window.addEventListener('load', function () {
             farm_x += 87;
             farm_y = 70;
         }
+    }
+    // -------------------- Rewards --------------------
+    const rewardDrugsMax = document.getElementById('reward-drugs-max');
+    const rewardGeeseMax = document.getElementById('reward-geese-max');
+    const rewardCarcassMax = document.getElementById('reward-carcass-max');
+    const rewardShedMax = document.getElementById('reward-shed-max');
+    const rewardFarmMax = document.getElementById('reward-farm-max');
+    const rewardAllMax = document.getElementById('reward-all-max');
+    const rewardMillion = document.getElementById('reward-million');
+
+    let rewardDrugsUnlocked = false;
+    let rewardGeeseUnlocked = false;
+    let rewardCarcassUnlocked = false;
+    let rewardShedUnlocked = false;
+    let rewardFarmUnlocked = false;
+    let rewardAllUnlocked = false;
+    let rewardMillionUnlocked = false;
+
+    function checkRewards() {
+
+        // Reward 1: Max Labor-Inducing Drugs (level 50)
+        if (drugCostLevel >= 50 && rewardDrugsUnlocked == false) {
+            rewardDrugsMax.classList.remove('disabled');
+            rewardDrugsMax.classList.add('unlocked');
+            showCongrats("🎉 Drugs Master Unlocked!");
+            rewardDrugsUnlocked = true;
+        }
+
+        // Reward 2: Max New Goose (level 17)
+        if (gooseCostLevel >= 17 && rewardGeeseUnlocked == false) {
+            rewardGeeseMax.classList.remove('disabled');
+            rewardGeeseMax.classList.add('unlocked');
+            showCongrats("🎉 Goose Collector Unlocked!");
+            rewardGeeseUnlocked = true;
+        }
+
+        // Reward 3: Max Goose Carcass (level 17)
+        if (carcassCostLevel >= 17 && rewardCarcassUnlocked == false) {
+            rewardCarcassMax.classList.remove('disabled');
+            rewardCarcassMax.classList.add('unlocked');
+            showCongrats("🎉 Carcass King Unlocked!");
+            rewardCarcassUnlocked = true;
+        }
+
+        // Reward 4: Max Goose Shed (level 17)
+        if (shedCostLevel >= 17 && rewardShedUnlocked == false) {
+            rewardShedMax.classList.remove('disabled');
+            rewardShedMax.classList.add('unlocked');
+            showCongrats("🎉 Shed Builder Unlocked!");
+            rewardShedUnlocked = true;
+        }
+
+        // Reward 5: Max New Farm (level 17)
+        if (farmCostLevel >= 17 && rewardFarmUnlocked == false) {
+            rewardFarmMax.classList.remove('disabled');
+            rewardFarmMax.classList.add('unlocked');
+            showCongrats("🎉 Farm Tycoon Unlocked!");
+            rewardFarmUnlocked = true;
+        }
+
+        // Reward 6: ALL upgrades maxed
+        if (drugCostLevel >= 50 && gooseCostLevel >= 17 && carcassCostLevel >= 17 &&
+            shedCostLevel >= 17 && farmCostLevel >= 17 && rewardAllUnlocked == false) {
+            rewardAllMax.classList.remove('disabled');
+            rewardAllMax.classList.add('unlocked');
+            showCongrats("🏆 ULTIMATE UPGRADER UNLOCKED! 🏆");
+            rewardAllUnlocked = true;
+        }
+
+        // Reward 7: 1 Million Eggs
+        if (click >= 1000000 && rewardMillionUnlocked == false) {
+            rewardMillion.classList.remove('disabled');
+            rewardMillion.classList.add('unlocked');
+            showCongrats("💰 MILLIONAIRE GOOSE! 💰");
+            rewardMillionUnlocked = true;
+        }
+    }
+
+    function showCongrats(message) {
+        const congrats = document.getElementById('congratulations-message');
+        const congratsText = document.getElementById('congratulations-text');
+        congratsText.textContent = message;
+        congrats.style.display = 'block';
+
+        // Hide after 3 seconds
+        setTimeout(function () {
+            congrats.style.display = 'none';
+        }, 3000);
     }
 });

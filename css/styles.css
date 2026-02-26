@@ -55,7 +55,7 @@ h1 {
 }
 #help-button:hover { background: #218838; }
 
-/* === Layout: Two-column + Full-width bottom === */
+/*LAYOUT FOR THE  COLUMNS */
 #main-content {
     display: flex;
     gap: 20px;
@@ -216,14 +216,15 @@ h1 {
 /* === Congratulations Message === */
 #congratulations-message {
     position: fixed;
-    top: 20px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: #28a745;
+    background: #364b53;
     color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
+    padding: 18px 36px;
+    border-radius: 12px;
+    font-size: 27px;
+    font-weight: 750;
     z-index: 1000;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     display: none;
@@ -342,4 +343,61 @@ h3 {
 
 #badge4 {
     display: none;
+}
+
+/* Reward Cards  */
+#rewards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.reward {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border: 2px solid #a7a7a7;
+    border-radius: 8px;
+    background-color: rgb(210, 227, 206);
+    box-shadow: #7b7b7b 0px 4px 4px -1px;
+    transition: all 0.3s ease;
+    width: 180px;
+    text-align: center;
+}
+
+.reward.disabled {
+    filter: grayscale(100%) brightness(60%);
+    opacity: 0.7;
+}
+
+.reward.unlocked {
+    filter: none;
+    opacity: 1;
+    border-color: #28a745;
+    box-shadow: #28a745 0px 4px 8px -1px;
+}
+
+.reward h3 {
+    font-size: 14px;
+    margin: 8px 0 4px;
+    color: #333;
+}
+
+.reward-desc {
+    font-size: 11px;
+    color: #666;
+    margin: 0;
+}
+
+.reward.unlocked h3 {
+    color: #1a567d;
+    font-weight: 700;
+}
+
+.reward.unlocked .reward-desc {
+    color: #28a745;
+    font-weight: 600;
 }
