@@ -139,6 +139,12 @@ window.addEventListener('load', function () {
             } else {
                 drugArea.innerHTML += "🥚";
             }
+            if (drugCostLevel > 24) {
+                drugArea.style.fontSize = "15px";
+            }
+            if (drugCostLevel > 39) {
+                drugArea.style.fontSize = "10px";
+            }
         }
     });
     setInterval(updateUpgradeStatus, 16);
