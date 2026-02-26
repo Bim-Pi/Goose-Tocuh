@@ -65,17 +65,17 @@ window.addEventListener('load', function () {
     const carcassCostDisplay = this.document.getElementById("upgrade3-cost");
     const carcassCostLevelDisplay = this.document.getElementById("upgrade3-count");
     
-    let intimacy = 10000;
-    let intimacyLevel = 0;
-    const btn4 = document.getElementById('upgrade-intimacy');
-    const intimacyCostDisplay = this.document.getElementById("upgrade4-cost");
-    const intimacyLevelDisplay = this.document.getElementById("upgrade4-count");
+    let shedCost = 10000;
+    let shedCostLevel = 0;
+    const btn4 = document.getElementById('upgrade-shed');
+    const shedCostDisplay = this.document.getElementById("upgrade4-cost");
+    const shedCostLevelDisplay = this.document.getElementById("upgrade4-count");
 
-    let feed = 100000;
-    let gooseFeedLevel = 0;
-    const btn5 = document.getElementById('upgrade-Feed');
-    const feedCostDisplay = this.document.getElementById("upgrade5-cost");
-    const feedLevelDisplay = this.document.getElementById("upgrade5-count");
+    let farmCost = 100000;
+    let farmCostLevel = 0;
+    const btn5 = document.getElementById('upgrade-farm');
+    const farmCostDisplay = this.document.getElementById("upgrade5-cost");
+    const farmCostLevelDisplay = this.document.getElementById("upgrade5-count");
 
 
 
@@ -104,12 +104,18 @@ window.addEventListener('load', function () {
         } else {
             btn3.classList.remove('disabled');
         }
-        if(click < intimacy) {
+        if (shedCostLevel >= 17){
+            btn4.classList.add('disabled');
+            shedCostDisplay.textContent = "Ultimate Level";
+        } else if(click < shedCost) {
             btn4.classList.add('disabled');
         } else {
             btn4.classList.remove('disabled');
         }
-        if(click < feed) {
+        if (farmCostLevel >= 17){
+            btn5.classList.add('disabled');
+            farmCostDisplay.textContent = "Ultimate Level";
+        } else if(click < farmCost) {
             btn5.classList.add('disabled');
         } else {
             btn5.classList.remove('disabled');
@@ -194,45 +200,46 @@ window.addEventListener('load', function () {
     });
 
     btn4.addEventListener('mouseover', function () {
-        btn4.title = "Improved Intimacy will increase your points by 10 with each click, and automatically produces 100 eggs per second.";
+        btn4.title = "An extra goose shed will increase your points by 10 with each click, and automatically produces 100 eggs per second.";
     });
 
     btn4.addEventListener('click', function () {
-        if (intimacyLevel >= 100){
-            btn4.classList.remove('disabled');
-        } else if(click >= intimacy) {
-            click -= intimacy;
-            intimacy += 20000;
-            intimacyLevel++;
-            eggsLaid += 2500;
+        if (shedCostLevel >= 17){
+            shedCostDisplay.textContent = "Ultimate Level";
+        } else if(click >= shedCost) {
+            click -= shedCost;
+            shedCost += 20000;
+            shedCostLevel++;
+            eggsLaid += 10000;
             clickPower += 10;
             activeEggsLaid.textContent = eggsLaid;
-            intimacyCostDisplay.textContent = intimacy;
+            shedCostDisplay.textContent = shedCost;
             eggs.textContent = click;
             clickValue.textContent = clickPower;
-            intimacyLevelDisplay.textContent = intimacyLevel;
+            shedCostLevelDisplay.textContent = shedCostLevel;
+            displayShed();
         }
     });
 
     btn5.addEventListener('mouseover', function () {
-        btn5.title = "Feeding your geese will increase your points by 30 with each click, and automatically produces 1000 eggs per second.";
+        btn5.title = "An extra farm will increase your points by 30 with each click, and automatically produces 1000 eggs per second.";
     });
 
     btn5.addEventListener('click', function () {
-        if (gooseFeedLevel == 100){
-            btn5.classList.remove('disabled');
-        } else if(click >= feed) {
-            click -= feed;
-            feed += 250000;
-            gooseFeedLevel++;
+        if (farmCostLevel >= 17){
+            farmCostDisplay.textContent = "Ultimate Level";
+        } else if(click >= farmCost) {
+            click -= farmCost;
+            farmCost += 250000;
+            farmCostLevel++;
             eggsLaid += 12500;
             clickPower += 30;
             activeEggsLaid.textContent = eggsLaid;
-            feedCostDisplay.textContent = feed;
+            farmCostDisplay.textContent = farmCost;
             eggs.textContent = click;
             clickValue.textContent = clickPower;
-            feedLevelDisplay.textContent = gooseFeedLevel;
-
+            farmCostLevelDisplay.textContent = farmCostLevel;
+            displayFarm();
         }
         
     });
@@ -302,4 +309,65 @@ window.addEventListener('load', function () {
         }
     }
     
+
+    const c3 = document.getElementById("badge3");
+    const ctx3 = c3.getContext("2d");
+
+    const shed = new Image();
+    shed.src = "images/Goose_Shed.png";
+    const farm = new Image();
+    farm.src = "images/farm image.png";
+
+    farm.onload = function () {
+        ctx3.drawImage(farm, 0, 0, 560, 150);
+    };
+
+    let shed_x = 20;
+    let shed_y = 70;
+    function displayShed() {
+        if(shedCostLevel == 1) {
+            ctx3.drawImage(shed, shed_x, shed_y, 57, 42);
+            c3.style.display = "flex";
+            shed_x += 58;
+        } else if(shedCostLevel % 2 == 0) {
+            ctx3.drawImage(shed, shed_x, shed_y, 57, 42);
+            shed_x -= 29;
+            shed_y = 85;
+        } else {
+            ctx3.drawImage(shed, shed_x, shed_y, 57, 42);
+            shed_x += 87;
+            shed_y = 70;
+        }
+    }
+
+
+    const c4 = document.getElementById("badge4");
+    const ctx4 = c4.getContext("2d");
+
+    const goose_Farm = new Image();
+    goose_Farm.src = "images/Goose_Farm.png";
+    const earth = new Image();
+    earth.src = "images/earth.png";
+
+    earth.onload = function () {
+        ctx4.drawImage(earth, 0, 0, 560, 150);
+    };
+0
+    let farm_x = 20;
+    let farm_y = 70;
+    function displayFarm() {
+        if(farmCostLevel == 1) {
+            ctx4.drawImage(goose_Farm, farm_x, farm_y, 53, 43);
+            c4.style.display = "flex";
+            farm_x += 58;
+        } else if(farmCostLevel % 2 == 0) {
+            ctx4.drawImage(goose_Farm, farm_x, farm_y, 53, 43);
+            farm_x -= 29;
+            farm_y = 85;
+        } else {
+            ctx4.drawImage(goose_Farm, farm_x, farm_y, 53, 43);
+            farm_x += 87;
+            farm_y = 70;
+        }
+    }
 });
