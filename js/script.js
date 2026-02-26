@@ -259,7 +259,7 @@ window.addEventListener('load', function () {
             farmCostDisplay.textContent = "Ultimate Level";
         } else if (click >= farmCost) {
             click -= farmCost;
-            farmCost += 250000;
+            farmCost += 150000;
             farmCostLevel++;
             eggsLaid += 12500;
             clickPower += 30;
