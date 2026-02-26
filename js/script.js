@@ -77,6 +77,11 @@ window.addEventListener('load', function () {
     const farmCostDisplay = this.document.getElementById("upgrade5-cost");
     const farmCostLevelDisplay = this.document.getElementById("upgrade5-count");
 
+    let fertilityCost = 1;
+    let fertilityCostLevel = 0;
+    const btnFertility = document.getElementById('upgrade-fertility');
+    const fertilityCostDisplay = document.getElementById('upgrade-fertility-cost');
+    const fertilityCostLevelDisplay = document.getElementById('upgrade-fertility-count');
 
 
     function updateUpgradeStatus() {
@@ -120,7 +125,29 @@ window.addEventListener('load', function () {
         } else {
             btn5.classList.remove('disabled');
         }
+        if (click < fertilityCost) {
+            btnFertility.classList.add('disabled');
+        } else {
+            btnFertility.classList.remove('disabled');
+        }
     }
+
+    btnFertility.addEventListener('mouseover', function () {
+        btnFertility.title = "Fertility increases your click power by +1 per click!";
+    });
+
+    btnFertility.addEventListener('click', function () {
+        if (click >= fertilityCost) {
+            click -= fertilityCost;
+            fertilityCost = fertilityCost * 10;
+            fertilityCostLevel++;
+            clickPower += 1;
+            eggs.textContent = click;
+            clickValue.textContent = clickPower;
+            fertilityCostDisplay.textContent = fertilityCost;
+            fertilityCostLevelDisplay.textContent = fertilityCostLevel;
+        }
+    });
 
     btn1.addEventListener('mouseover', function () {
         btn1.title = "The labor-inducing drug will increase your points by 0.5 with each click, and automatically produces 1 eggs per second.";
@@ -155,7 +182,6 @@ window.addEventListener('load', function () {
     });
     setInterval(function () {
         updateUpgradeStatus();
-        checkRewards();
     }, 16);
 
     btn2.addEventListener('mouseover', function () {
@@ -461,4 +487,7 @@ window.addEventListener('load', function () {
             congrats.style.display = 'none';
         }, 3000);
     }
+    setInterval(function () {
+        checkRewards();
+    }, 16);
 });
