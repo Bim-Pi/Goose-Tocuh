@@ -157,6 +157,11 @@ window.addEventListener('load', function () {
 
     btnFertility.addEventListener('click', function () {
         if (click >= fertilityCost) {
+            const clickSound = new Audio('SoundEffect/MouseClick_SoundEffect.mp3');
+            clickSound.play().catch(e => {
+                console.warn("Audio play blocked:", e);
+            });
+
             click -= fertilityCost;
             fertilityCost = fertilityCost * 10;
             fertilityCostLevel++;
@@ -177,10 +182,15 @@ window.addEventListener('load', function () {
         if (drugCostLevel >= 50) {
             drugCostDisplay.textContent = "Ultimate Level";
         } else if (click >= drugCost) {
+            const clickSound = new Audio('SoundEffect/MouseClick_SoundEffect.mp3');
+            clickSound.play().catch(e => {
+                console.warn("Audio play blocked:", e);
+            });
+
             click -= drugCost;
             drugCost += 25;
             drugCostLevel++;
-            eggsLaid += 1;
+            eggsLaid += 10;
             clickPower += 0.5;
             activeEggsLaid.textContent = eggsLaid;
             drugCostDisplay.textContent = drugCost;
@@ -210,10 +220,15 @@ window.addEventListener('load', function () {
         if (gooseCostLevel >= 17) {
             gooseCostDisplay.textContent = "Ultimate Level";
         } else if (click >= gooseCost) {
+            const clickSound = new Audio('SoundEffect/MouseClick_SoundEffect.mp3');
+            clickSound.play().catch(e => {
+                console.warn("Audio play blocked:", e);
+            });
+
             click -= gooseCost;
             gooseCost += 250;
             gooseCostLevel++;
-            eggsLaid += 5;
+            eggsLaid += 100;
             clickPower += 1;
             activeEggsLaid.textContent = eggsLaid;
             gooseCostDisplay.textContent = gooseCost;
@@ -233,10 +248,15 @@ window.addEventListener('load', function () {
         if (carcassCostLevel >= 17) {
             carcassCostDisplay.textContent = "Ultimate Level";
         } else if (click >= carcassCost) {
+            const clickSound = new Audio('SoundEffect/MouseClick_SoundEffect.mp3');
+            clickSound.play().catch(e => {
+                console.warn("Audio play blocked:", e);
+            });
+
             click -= carcassCost;
             carcassCost += 2500;
             carcassCostLevel++;
-            eggsLaid += 10;
+            eggsLaid += 1000;
             clickPower += 5;
             activeEggsLaid.textContent = eggsLaid;
             carcassCostDisplay.textContent = carcassCost;
@@ -256,10 +276,15 @@ window.addEventListener('load', function () {
         if (shedCostLevel >= 17) {
             shedCostDisplay.textContent = "Ultimate Level";
         } else if (click >= shedCost) {
+            const clickSound = new Audio('SoundEffect/MouseClick_SoundEffect.mp3');
+            clickSound.play().catch(e => {
+                console.warn("Audio play blocked:", e);
+            });
+
             click -= shedCost;
             shedCost += 20000;
             shedCostLevel++;
-            eggsLaid += 100;
+            eggsLaid += 10000;
             clickPower += 10;
             activeEggsLaid.textContent = eggsLaid;
             shedCostDisplay.textContent = shedCost;
@@ -279,10 +304,15 @@ window.addEventListener('load', function () {
         if (farmCostLevel >= 17) {
             farmCostDisplay.textContent = "Ultimate Level";
         } else if (click >= farmCost) {
+            const clickSound = new Audio('SoundEffect/MouseClick_SoundEffect.mp3');
+            clickSound.play().catch(e => {
+                console.warn("Audio play blocked:", e);
+            });
+
             click -= farmCost;
             farmCost += 150000;
             farmCostLevel++;
-            eggsLaid += 1000;
+            eggsLaid += 100000;
             clickPower += 30;
             activeEggsLaid.textContent = eggsLaid;
             farmCostDisplay.textContent = farmCost;
@@ -444,9 +474,14 @@ window.addEventListener('load', function () {
     let rewardMillionUnlocked = false;
 
     function checkRewards() {
+        const victory = new Audio('SoundEffect/Victory_SoundEffect.ogg');
+        const rewardSound = new Audio('SoundEffect/Reward_SoundEffect.ogg');
 
         // Reward 1: Max Labor-Inducing Drugs (level 50) --------------------------------
         if (drugCostLevel >= 50 && rewardDrugsUnlocked == false) {
+            rewardSound.play().catch(e => {
+                console.warn("Audio play blocked:", e);
+            });
             rewardDrugsMax.classList.remove('disabled');
             rewardDrugsMax.classList.add('unlocked');
             showCongrats("🎉 Drugs Master Unlocked!");
@@ -455,6 +490,10 @@ window.addEventListener('load', function () {
 
         // Reward 2: Max New Goose (level 17) --------------------------------
         if (gooseCostLevel >= 17 && rewardGeeseUnlocked == false) {
+            rewardSound.play().catch(e => {
+                console.warn("Audio play blocked:", e);
+            });
+
             rewardGeeseMax.classList.remove('disabled');
             rewardGeeseMax.classList.add('unlocked');
             showCongrats("🎉 Goose Collector Unlocked!");
@@ -463,6 +502,10 @@ window.addEventListener('load', function () {
 
         // Reward 3: Max Goose Carcass (level 17) --------------------------------
         if (carcassCostLevel >= 17 && rewardCarcassUnlocked == false) {
+            rewardSound.play().catch(e => {
+                console.warn("Audio play blocked:", e);
+            });
+
             rewardCarcassMax.classList.remove('disabled');
             rewardCarcassMax.classList.add('unlocked');
             showCongrats("🎉 Carcass King Unlocked!");
@@ -471,6 +514,10 @@ window.addEventListener('load', function () {
 
         // Reward 4: Max Goose Shed (level 17) --------------------------------
         if (shedCostLevel >= 17 && rewardShedUnlocked == false) {
+            rewardSound.play().catch(e => {
+                console.warn("Audio play blocked:", e);
+            });
+
             rewardShedMax.classList.remove('disabled');
             rewardShedMax.classList.add('unlocked');
             showCongrats("🎉 Shed Builder Unlocked!");
@@ -479,6 +526,10 @@ window.addEventListener('load', function () {
 
         // Reward 5: Max New Farm (level 17) --------------------------------
         if (farmCostLevel >= 17 && rewardFarmUnlocked == false) {
+            victory.play().catch(e => {
+                console.warn("Audio play blocked:", e);
+            });
+
             rewardFarmMax.classList.remove('disabled');
             rewardFarmMax.classList.add('unlocked');
             showCongrats("🎉 Farm Tycoon Unlocked!");
@@ -488,6 +539,10 @@ window.addEventListener('load', function () {
         // Reward 6: ALL upgrades maxed --------------------------------
         if (drugCostLevel >= 50 && gooseCostLevel >= 17 && carcassCostLevel >= 17 &&
             shedCostLevel >= 17 && farmCostLevel >= 17 && rewardAllUnlocked == false) {
+            victory.play().catch(e => {
+                console.warn("Audio play blocked:", e);
+            });
+
             rewardAllMax.classList.remove('disabled');
             rewardAllMax.classList.add('unlocked');
             showCongrats("🏆 ULTIMATE UPGRADER UNLOCKED! 🏆");
@@ -496,6 +551,10 @@ window.addEventListener('load', function () {
 
         // Reward 7: 1 Million Eggs --------------------------------
         if (click >= 1000000 && rewardMillionUnlocked == false) {
+            rewardSound.play().catch(e => {
+                console.warn("Audio play blocked:", e);
+            });
+
             rewardMillion.classList.remove('disabled');
             rewardMillion.classList.add('unlocked');
             showCongrats("💰 MILLIONAIRE GOOSE! 💰");
@@ -505,6 +564,9 @@ window.addEventListener('load', function () {
             rewardShedUnlocked && rewardFarmUnlocked && rewardAllUnlocked && rewardMillionUnlocked) {
 
             if (gameFinished == false) {
+                victory.play().catch(e => {
+                    console.warn("Audio play blocked:", e);
+                });
                 gameFinished = true;
                 showCongrats("🎊GAME COMPLETE! No more eggs can be earned!🎊", "#9b59b6");
             }
@@ -517,10 +579,10 @@ window.addEventListener('load', function () {
         congratsText.textContent = message;
         congrats.style.display = 'block';
 
-        // Hide after 3 seconds --------------------------------
+        // Hide after 7 seconds --------------------------------
         setTimeout(function () {
             congrats.style.display = 'none';
-        }, 3000);
+        }, 7000);
     }
 
     // Repeated Execution of Check Rewards --------------------------------
