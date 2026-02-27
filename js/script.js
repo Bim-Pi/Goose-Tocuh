@@ -522,6 +522,8 @@ window.addEventListener('load', function () {
             congrats.style.display = 'none';
         }, 3000);
     }
+
+    // Repeated Execution of Check Rewards --------------------------------
     setInterval(function () {
         checkRewards();
     }, 16);
