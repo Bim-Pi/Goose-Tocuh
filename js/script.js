@@ -133,7 +133,7 @@ window.addEventListener('load', function () {
     }
 
     btnFertility.addEventListener('mouseover', function () {
-        btnFertility.title = "Fertility increases your click power by +1 per click!";
+        btnFertility.title = "Fertility increases your click power by x2 per click!";
     });
 
     btnFertility.addEventListener('click', function () {
@@ -141,7 +141,7 @@ window.addEventListener('load', function () {
             click -= fertilityCost;
             fertilityCost = fertilityCost * 10;
             fertilityCostLevel++;
-            clickPower += 1;
+            clickPower *= 2;
             eggs.textContent = click;
             clickValue.textContent = clickPower;
             fertilityCostDisplay.textContent = fertilityCost;
