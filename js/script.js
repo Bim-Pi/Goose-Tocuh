@@ -6,6 +6,8 @@ window.addEventListener('load', function () {
     let clickPower = 1;
     let eggsLaid = 0;
     const eggs = this.document.getElementById("resource-count")
+    let gameFinished = false;
+
 
     const preloadSound = new Audio('SoundEffect/GooseHONK!_SoundEffect.mp3');
     preloadSound.preload = 'auto';
@@ -13,19 +15,23 @@ window.addEventListener('load', function () {
 
     // Functions for clicking--------------------------
     image.addEventListener('click', function () {
-        const honk = new Audio('SoundEffect/GooseHONK!_SoundEffect.mp3');
-        honk.play().catch(e => {
-            console.warn("Audio play blocked:", e);
-        });
+        if (gameFinished == false) {
+            const honk = new Audio('SoundEffect/GooseHONK!_SoundEffect.mp3');
+            honk.play().catch(e => {
+                console.warn("Audio play blocked:", e);
+            });
 
-        click += clickPower;
-        eggs.textContent = click;
+            click += clickPower;
+            eggs.textContent = click;
+        }
     });
 
     function eggsLaidPerSec() {
-        click += eggsLaid;
-        eggs.textContent = click;
-        activeEggsLaid.textContent = eggsLaid;
+        if (gameFinished == false) {
+            click += eggsLaid;
+            eggs.textContent = click;
+            activeEggsLaid.textContent = eggsLaid;
+        }
     }
     setInterval(eggsLaidPerSec, 1000);
 
@@ -495,6 +501,14 @@ window.addEventListener('load', function () {
             showCongrats("💰 MILLIONAIRE GOOSE! 💰");
             rewardMillionUnlocked = true;
         }
+        if (rewardDrugsUnlocked && rewardGeeseUnlocked && rewardCarcassUnlocked &&
+            rewardShedUnlocked && rewardFarmUnlocked && rewardAllUnlocked && rewardMillionUnlocked) {
+
+            if (gameFinished == false) {
+                gameFinished = true;
+                showCongrats("🎊GAME COMPLETE! No more eggs can be earned!🎊", "#9b59b6");
+            }
+        }
     }
 
     function showCongrats(message) {
@@ -511,4 +525,5 @@ window.addEventListener('load', function () {
     setInterval(function () {
         checkRewards();
     }, 16);
+
 });
