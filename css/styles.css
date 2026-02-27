@@ -260,6 +260,7 @@ h1 {
     color: #777;
 }
 
+/* === Upgrade Button === */
 .upgrade:not(.disabled) {
     display: flex;
     align-items: center;
@@ -325,6 +326,7 @@ h3 {
     box-shadow: #7b7b7b 0px 2px 4px -1px;
 }
 
+/* === Coup Display === */
 .coup {
     margin-bottom: 20px;
 }
@@ -345,7 +347,7 @@ h3 {
     display: none;
 }
 
-/* Reward Cards  */
+/* === Reward Cards === */
 #rewards-container {
     display: flex;
     flex-wrap: wrap;

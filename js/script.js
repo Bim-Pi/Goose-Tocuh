@@ -83,8 +83,10 @@ window.addEventListener('load', function () {
     const fertilityCostDisplay = document.getElementById('upgrade-fertility-cost');
     const fertilityCostLevelDisplay = document.getElementById('upgrade-fertility-count');
 
-
+    // Update Upgrade Status Check--------------------------------
     function updateUpgradeStatus() {
+
+        // Drug Status --------------------------------
         if (drugCostLevel >= 50) {
             btn1.classList.add('disabled');
             drugCostDisplay.textContent = "Ultimate Level";
@@ -93,6 +95,8 @@ window.addEventListener('load', function () {
         } else {
             btn1.classList.remove('disabled');
         }
+
+        // Goose Status --------------------------------
         if (gooseCostLevel >= 17) {
             btn2.classList.add('disabled');
             gooseCostDisplay.textContent = "Ultimate Level";
@@ -101,6 +105,8 @@ window.addEventListener('load', function () {
         } else {
             btn2.classList.remove('disabled');
         }
+
+        // Carcass Status --------------------------------
         if (carcassCostLevel >= 17) {
             btn3.classList.add('disabled');
             carcassCostDisplay.textContent = "Ultimate Level";
@@ -109,6 +115,8 @@ window.addEventListener('load', function () {
         } else {
             btn3.classList.remove('disabled');
         }
+
+        // Shed Status --------------------------------
         if (shedCostLevel >= 17) {
             btn4.classList.add('disabled');
             shedCostDisplay.textContent = "Ultimate Level";
@@ -117,6 +125,8 @@ window.addEventListener('load', function () {
         } else {
             btn4.classList.remove('disabled');
         }
+
+        // Farm Status --------------------------------
         if (farmCostLevel >= 17) {
             btn5.classList.add('disabled');
             farmCostDisplay.textContent = "Ultimate Level";
@@ -125,6 +135,8 @@ window.addEventListener('load', function () {
         } else {
             btn5.classList.remove('disabled');
         }
+
+        // Fertility Status --------------------------------
         if (click < fertilityCost) {
             btnFertility.classList.add('disabled');
         } else {
@@ -132,6 +144,7 @@ window.addEventListener('load', function () {
         }
     }
 
+    // Fertility Button Function --------------------------------
     btnFertility.addEventListener('mouseover', function () {
         btnFertility.title = "Fertility increases your click power by x2 per click!";
     });
@@ -149,6 +162,7 @@ window.addEventListener('load', function () {
         }
     });
 
+    // Drug Button Function --------------------------------
     btn1.addEventListener('mouseover', function () {
         btn1.title = "The labor-inducing drug will increase your points by 0.5 with each click, and automatically produces 1 eggs per second.";
     });
@@ -180,10 +194,8 @@ window.addEventListener('load', function () {
             }
         }
     });
-    setInterval(function () {
-        updateUpgradeStatus();
-    }, 16);
 
+    // Goose Button Function --------------------------------
     btn2.addEventListener('mouseover', function () {
         btn2.title = "An extra goose will increase your points by 1 with each click, and automatically produces 5 eggs per second.";
     });
@@ -206,6 +218,7 @@ window.addEventListener('load', function () {
         }
     });
 
+    // Carcass Button Function --------------------------------
     btn3.addEventListener('mouseover', function () {
         btn3.title = "A extra goose carcass will increase your points by 5 with each click, and automatically produces 10 eggs per second.";
     });
@@ -228,6 +241,7 @@ window.addEventListener('load', function () {
         }
     });
 
+    // Shed Button Function --------------------------------
     btn4.addEventListener('mouseover', function () {
         btn4.title = "An extra goose shed will increase your points by 10 with each click, and automatically produces 100 eggs per second.";
     });
@@ -250,6 +264,7 @@ window.addEventListener('load', function () {
         }
     });
 
+    // Farm Button Function --------------------------------
     btn5.addEventListener('mouseover', function () {
         btn5.title = "An extra farm will increase your points by 30 with each click, and automatically produces 1000 eggs per second.";
     });
@@ -273,10 +288,15 @@ window.addEventListener('load', function () {
 
     });
 
+    // Repeated Execution of State Updates --------------------------------
+    setInterval(function () {
+        updateUpgradeStatus();
+    }, 16);
+
 
     // ----------------------------------- Coup ----------------------------------------
 
-    //Add new goose coup
+    // Goose Coup--------------------------------
     const c1 = document.getElementById("badge1");
     const ctx1 = c1.getContext("2d");
 
@@ -307,7 +327,7 @@ window.addEventListener('load', function () {
         }
     }
 
-
+    // Carcass Coup--------------------------------
     const c2 = document.getElementById("badge2");
     const ctx2 = c2.getContext("2d");
 
@@ -338,7 +358,7 @@ window.addEventListener('load', function () {
         }
     }
 
-
+    // Shed Coup--------------------------------
     const c3 = document.getElementById("badge3");
     const ctx3 = c3.getContext("2d");
 
@@ -369,7 +389,7 @@ window.addEventListener('load', function () {
         }
     }
 
-
+    // Farm Coup--------------------------------
     const c4 = document.getElementById("badge4");
     const ctx4 = c4.getContext("2d");
 
@@ -399,7 +419,8 @@ window.addEventListener('load', function () {
             farm_y = 70;
         }
     }
-    // -------------------- Rewards --------------------
+
+    // ----------------------------------- Rewards ----------------------------------------
     const rewardDrugsMax = document.getElementById('reward-drugs-max');
     const rewardGeeseMax = document.getElementById('reward-geese-max');
     const rewardCarcassMax = document.getElementById('reward-carcass-max');
@@ -418,7 +439,7 @@ window.addEventListener('load', function () {
 
     function checkRewards() {
 
-        // Reward 1: Max Labor-Inducing Drugs (level 50)
+        // Reward 1: Max Labor-Inducing Drugs (level 50) --------------------------------
         if (drugCostLevel >= 50 && rewardDrugsUnlocked == false) {
             rewardDrugsMax.classList.remove('disabled');
             rewardDrugsMax.classList.add('unlocked');
@@ -426,7 +447,7 @@ window.addEventListener('load', function () {
             rewardDrugsUnlocked = true;
         }
 
-        // Reward 2: Max New Goose (level 17)
+        // Reward 2: Max New Goose (level 17) --------------------------------
         if (gooseCostLevel >= 17 && rewardGeeseUnlocked == false) {
             rewardGeeseMax.classList.remove('disabled');
             rewardGeeseMax.classList.add('unlocked');
@@ -434,7 +455,7 @@ window.addEventListener('load', function () {
             rewardGeeseUnlocked = true;
         }
 
-        // Reward 3: Max Goose Carcass (level 17)
+        // Reward 3: Max Goose Carcass (level 17) --------------------------------
         if (carcassCostLevel >= 17 && rewardCarcassUnlocked == false) {
             rewardCarcassMax.classList.remove('disabled');
             rewardCarcassMax.classList.add('unlocked');
@@ -442,7 +463,7 @@ window.addEventListener('load', function () {
             rewardCarcassUnlocked = true;
         }
 
-        // Reward 4: Max Goose Shed (level 17)
+        // Reward 4: Max Goose Shed (level 17) --------------------------------
         if (shedCostLevel >= 17 && rewardShedUnlocked == false) {
             rewardShedMax.classList.remove('disabled');
             rewardShedMax.classList.add('unlocked');
@@ -450,7 +471,7 @@ window.addEventListener('load', function () {
             rewardShedUnlocked = true;
         }
 
-        // Reward 5: Max New Farm (level 17)
+        // Reward 5: Max New Farm (level 17) --------------------------------
         if (farmCostLevel >= 17 && rewardFarmUnlocked == false) {
             rewardFarmMax.classList.remove('disabled');
             rewardFarmMax.classList.add('unlocked');
@@ -458,7 +479,7 @@ window.addEventListener('load', function () {
             rewardFarmUnlocked = true;
         }
 
-        // Reward 6: ALL upgrades maxed
+        // Reward 6: ALL upgrades maxed --------------------------------
         if (drugCostLevel >= 50 && gooseCostLevel >= 17 && carcassCostLevel >= 17 &&
             shedCostLevel >= 17 && farmCostLevel >= 17 && rewardAllUnlocked == false) {
             rewardAllMax.classList.remove('disabled');
@@ -467,7 +488,7 @@ window.addEventListener('load', function () {
             rewardAllUnlocked = true;
         }
 
-        // Reward 7: 1 Million Eggs
+        // Reward 7: 1 Million Eggs --------------------------------
         if (click >= 1000000 && rewardMillionUnlocked == false) {
             rewardMillion.classList.remove('disabled');
             rewardMillion.classList.add('unlocked');
@@ -482,7 +503,7 @@ window.addEventListener('load', function () {
         congratsText.textContent = message;
         congrats.style.display = 'block';
 
-        // Hide after 3 seconds
+        // Hide after 3 seconds --------------------------------
         setTimeout(function () {
             congrats.style.display = 'none';
         }, 3000);
