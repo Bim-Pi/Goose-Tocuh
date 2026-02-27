@@ -180,7 +180,7 @@ window.addEventListener('load', function () {
             click -= drugCost;
             drugCost += 20;
             drugCostLevel++;
-            eggsLaid += 10;
+            eggsLaid += 1;
             clickPower += 0.5;
             activeEggsLaid.textContent = eggsLaid;
             drugCostDisplay.textContent = drugCost;
@@ -213,7 +213,7 @@ window.addEventListener('load', function () {
             click -= gooseCost;
             gooseCost += 100;
             gooseCostLevel++;
-            eggsLaid += 50;
+            eggsLaid += 5;
             clickPower += 1;
             activeEggsLaid.textContent = eggsLaid;
             gooseCostDisplay.textContent = gooseCost;
@@ -236,7 +236,7 @@ window.addEventListener('load', function () {
             click -= carcassCost;
             carcassCost += 2500;
             carcassCostLevel++;
-            eggsLaid += 500;
+            eggsLaid += 10;
             clickPower += 5;
             activeEggsLaid.textContent = eggsLaid;
             carcassCostDisplay.textContent = carcassCost;
@@ -259,7 +259,7 @@ window.addEventListener('load', function () {
             click -= shedCost;
             shedCost += 20000;
             shedCostLevel++;
-            eggsLaid += 10000;
+            eggsLaid += 100;
             clickPower += 10;
             activeEggsLaid.textContent = eggsLaid;
             shedCostDisplay.textContent = shedCost;
@@ -282,7 +282,7 @@ window.addEventListener('load', function () {
             click -= farmCost;
             farmCost += 150000;
             farmCostLevel++;
-            eggsLaid += 12500;
+            eggsLaid += 1000;
             clickPower += 30;
             activeEggsLaid.textContent = eggsLaid;
             farmCostDisplay.textContent = farmCost;
