@@ -178,7 +178,7 @@ window.addEventListener('load', function () {
             drugCostDisplay.textContent = "Ultimate Level";
         } else if (click >= drugCost) {
             click -= drugCost;
-            drugCost += 20;
+            drugCost += 25;
             drugCostLevel++;
             eggsLaid += 1;
             clickPower += 0.5;
@@ -211,7 +211,7 @@ window.addEventListener('load', function () {
             gooseCostDisplay.textContent = "Ultimate Level";
         } else if (click >= gooseCost) {
             click -= gooseCost;
-            gooseCost += 100;
+            gooseCost += 250;
             gooseCostLevel++;
             eggsLaid += 5;
             clickPower += 1;
